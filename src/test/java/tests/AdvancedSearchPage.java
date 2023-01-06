@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-@Tag("advanced_search_tests")
+@Tag("advanced_search")
 public class AdvancedSearchPage extends TestBase {
     SelenideElement searchingForm = $("[data-qa='advanced-vacancy-search__form']");
     SelenideElement submitButton = $(".bloko-modal-footer").find(byText("Выбрать"));

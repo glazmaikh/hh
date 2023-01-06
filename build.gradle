@@ -35,7 +35,7 @@ allure {
 dependencies {
     testImplementation (
             'org.junit.jupiter:junit-jupiter:5.9.1',
-            'com.codeborne:selenide:6.10.3',
+            'com.codeborne:selenide:6.11.0',
             'io.qameta.allure:allure-selenide:2.20.1',
             'org.slf4j:slf4j-simple:2.0.5'
     )
@@ -43,7 +43,7 @@ dependencies {
 
 task advanced_search_tests(type: Test) {
     useJUnitPlatform {
-        includeTags("advanced_search_tests")
+        includeTags("advanced_search")
     }
 }
 
