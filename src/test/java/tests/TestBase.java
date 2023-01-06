@@ -13,10 +13,6 @@ public class TestBase {
 
     @BeforeAll
     static void setUp() {
-//        System.setProperty("webdriver.chrome.driver", "C://webdrivers/chromedriver.exe");
-//        Configuration.holdBrowserOpen = true;
-//        Configuration.browserSize = "1932x1160";
-//        Configuration.baseUrl = "https://hh.ru";
         Configuration.baseUrl = System.getProperty("base_url", "https://hh.ru");
         Configuration.remote = System.getProperty("remote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
         Configuration.browser = System.getProperty("browser", "chrome");

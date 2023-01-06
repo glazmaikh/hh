@@ -82,10 +82,6 @@ public class AdvancedSearchPage extends TestBase {
             $(".bloko-tree-selector__items").find(byText("Тестировщик")).click();
             submitButton.click();
         });
-//        step("Set region", () -> {
-//            searchingForm.find(byText("Москва")).ancestor(".bloko-tag-list")
-//                    .sibling(0).$(".bloko-input-text").val("Россия");
-//        });
         step("Set remote", () -> {
             searchingForm.find(byText("Удаленная работа")).scrollTo().click();
         });
@@ -171,10 +167,6 @@ public class AdvancedSearchPage extends TestBase {
             $(".bloko-tree-selector__items").find(byText("Тестировщик")).click();
             submitButton.click();
         });
-//        step("Set region Russia", () -> {
-//            searchingForm.find(byText("Москва")).ancestor(".bloko-tag-list")
-//                    .sibling(0).$(".bloko-input-text").val("Россия");
-//        });
         step("Set null experience", () -> {
             searchingForm.find(byText("Нет опыта")).scrollTo().click();
         });
