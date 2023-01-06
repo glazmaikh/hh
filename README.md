@@ -1,7 +1,6 @@
 # hh.ru
-#### Test for Advanced Search Page: https://hh.ru/search/vacancy/advanced </br>
-#### Reposiotry:
-https://github.com/glazmaikh/hh </br>
+#### Test for Advanced Search Page: https://hh.ru/search/vacancy/advanced 
+#### Reposiotry: https://github.com/glazmaikh/hh
 
 #### Список технологий:
 Java Gradle IntelliJ IDEA Selenide Selenoid JUnit5 Jenkins Allure Report Telegram
