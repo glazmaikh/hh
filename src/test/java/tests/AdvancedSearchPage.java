@@ -18,9 +18,9 @@ public class AdvancedSearchPage extends TestBase {
     SelenideElement submitButton = $(".bloko-modal-footer").find(byText("Выбрать"));
     SelenideElement employmentFindDiv = $(".novafilters");
 
-    @DisplayName("Part-time search test")
+    @DisplayName("Part-time QA manual search test")
     @Test
-    void createPartTimeSearchTest() {
+    void createPartTimeQASearchTest() {
         step("Open Advanced Search page", () -> {
             open("/search/vacancy/advanced");
         });
@@ -33,12 +33,12 @@ public class AdvancedSearchPage extends TestBase {
             $(".bloko-tree-selector__items").find(byText("Тестировщик")).click();
             submitButton.click();
         });
-        step("Set region", () -> {
-            searchingForm.find(byText("Москва")).ancestor(".bloko-tag-list")
-                    .sibling(0).$(".bloko-input-text").val("Россия");
-        });
+//        step("Set region", () -> {
+//            searchingForm.find(byText("Москва")).ancestor(".bloko-tag-list")
+//                    .sibling(0).$(".bloko-input-text").val("Россия");
+//        });
         step("Set remote", () -> {
-            searchingForm.find(byText("Удаленная работа")).click();
+            searchingForm.find(byText("Удаленная работа")).scrollTo().click();
         });
         step("Set part-time employment", () -> {
             searchingForm.find(byText("Неполный день")).scrollTo().click();
@@ -61,6 +61,92 @@ public class AdvancedSearchPage extends TestBase {
             employmentFindDiv.find(byText("Россия")).ancestor("label")
                     .$(".bloko-checkbox__input").shouldBe(checked);
             employmentFindDiv.find(byText("Тестировщик")).ancestor("label")
+                    .$(".bloko-checkbox__input").shouldBe(checked);
+            employmentFindDiv.find(byText("Удаленная работа")).ancestor("label")
+                    .$(".bloko-checkbox__input").shouldBe(checked);
+        });
+    }
+
+    @DisplayName("Full-time QA manual search test")
+    @Test
+    void createFullTimeQASearchTest() {
+        step("Open Advanced Search page", () -> {
+            open("/search/vacancy/advanced");
+        });
+        step("Set IT category", () -> {
+            searchingForm.find(byText("Указать специализации")).click();
+            $(".bloko-tree-selector-popup-content").find(byText("Информационные технологии"))
+                    .ancestor("div").$(".bloko-tree-selector-item-spacer").click();
+        });
+        step("Set QA profile", () -> {
+            $(".bloko-tree-selector__items").find(byText("Тестировщик")).click();
+            submitButton.click();
+        });
+//        step("Set region", () -> {
+//            searchingForm.find(byText("Москва")).ancestor(".bloko-tag-list")
+//                    .sibling(0).$(".bloko-input-text").val("Россия");
+//        });
+        step("Set remote", () -> {
+            searchingForm.find(byText("Удаленная работа")).scrollTo().click();
+        });
+        step("Set full-time employment", () -> {
+            searchingForm.find(byText("Полный день")).scrollTo().click();
+            searchingForm.find(byText("Гибкий график")).click();
+        });
+        step("Check checked inputs in result", () -> {
+            $(".search-submit-wrapper").find(byText("Найти")).click();
+            $(".bloko-header-section-3").shouldHave(text("Найден"));
+
+            employmentFindDiv.find(byText("Россия")).ancestor("label")
+                    .$(".bloko-checkbox__input").shouldBe(checked);
+            employmentFindDiv.find(byText("Тестировщик")).ancestor("label")
+                    .$(".bloko-checkbox__input").shouldBe(checked);
+            employmentFindDiv.find(byText("Полный день")).ancestor("label")
+                    .$(".bloko-checkbox__input").shouldBe(checked);
+            employmentFindDiv.find(byText("Гибкий график")).ancestor("label")
+                    .$(".bloko-checkbox__input").shouldBe(checked);
+            employmentFindDiv.find(byText("Удаленная работа")).ancestor("label")
+                    .$(".bloko-checkbox__input").shouldBe(checked);
+        });
+    }
+
+    @DisplayName("Temporary QA manual search test")
+    @Test
+    void createTemporaryJobQASearchTest() {
+        step("Open Advanced Search page", () -> {
+            open("/search/vacancy/advanced");
+        });
+        step("Set IT category", () -> {
+            searchingForm.find(byText("Указать специализации")).click();
+            $(".bloko-tree-selector-popup-content").find(byText("Информационные технологии"))
+                    .ancestor("div").$(".bloko-tree-selector-item-spacer").click();
+        });
+        step("Set QA profile", () -> {
+            $(".bloko-tree-selector__items").find(byText("Тестировщик")).click();
+            submitButton.click();
+        });
+        step("Set region", () -> {
+            searchingForm.find(byText("Москва")).ancestor(".bloko-tag-list")
+                    .sibling(0).$(".bloko-input-text").val("Россия");
+        });
+        step("Set remote", () -> {
+            searchingForm.find(byText("Удаленная работа")).scrollTo().click();
+        });
+        step("Set temporary employment", () -> {
+            searchingForm.find(byText("Полный день")).scrollTo().click();
+            searchingForm.find(byText("Гибкий график")).click();
+        });
+        step("Check checked inputs in result", () -> {
+            $(".search-submit-wrapper").find(byText("Найти")).click();
+            $(".bloko-header-section-3").shouldHave(text("Найден"));
+
+            employmentFindDiv.find(byText("Россия")).ancestor("label")
+                    .$(".bloko-checkbox__input").shouldBe(checked);
+            employmentFindDiv.find(byText("Тестировщик")).ancestor("label")
+                    .$(".bloko-checkbox__input").shouldBe(checked);
+            employmentFindDiv.find(byText("Полный день")).ancestor("label")
+                    .$(".bloko-checkbox__input").shouldBe(checked);
+            employmentFindDiv.find(byText("Гибкий график")).ancestor("label")
                     .$(".bloko-checkbox__input").shouldBe(checked);
             employmentFindDiv.find(byText("Удаленная работа")).ancestor("label")
                     .$(".bloko-checkbox__input").shouldBe(checked);
