@@ -1,11 +1,18 @@
-## hh.ru
+## hh.ru 
 #### Test for Advanced Search Page: https://hh.ru/search/vacancy/advanced 
-#### Reposiotry: https://github.com/glazmaikh/hh
-
-#### Список технологий:
-Java Gradle IntelliJ IDEA Selenide Selenoid JUnit5 Jenkins Allure Report Telegram
-
-![This is an image](/design/Java.png)![This is an image](/design/Gradle.png)![This is an image](/design/Intelij_IDEA.png)![This is an image](/design/Selenide.png)![This is an image](/design/Selenoid.png)![This is an image](/design/JUnit5.png)![This is an image](/design/Jenkins.png)![This is an image](/design/Allure_Report.png)![This is an image](/design/Telegram.png)
+#### Технологии и инструменты:
+<p align="center">
+<a href="https://www.jetbrains.com/idea/"><img src="/design/Intelij_IDEA.png" width="50" height="50"  alt="IDEA"/></a>
+<a href="https://www.java.com/"><img src="/design/Java.png" width="50" height="50"  alt="Java"/></a>
+<a href="https://github.com/"><img src="/design/GitHub-Mark.png" width="50" height="50"  alt="Github"/></a>
+<a href="https://junit.org/junit5/"><img src="/design/JUnit5.png" width="50" height="50"  alt="JUnit 5"/></a>
+<a href="https://gradle.org/"><img src="/design/Gradle.png" width="50" height="50"  alt="Gradle"/></a>
+<a href="https://selenide.org/"><img src="/design/Selenide.png" width="50" height="50"  alt="Selenide"/></a>
+<a href="https://aerokube.com/selenoid/"><img src="/design/Selenoid.png" width="50" height="50"  alt="Selenoid"/></a>
+<a href="https://github.com/allure-framework/allure2"><img src="/design/Allure_Report.png" width="50" height="50"  alt="Allure"/></a>
+<a href="https://www.jenkins.io/"><img src="/design/Jenkins.png" width="50" height="50"  alt="Jenkins"/></a>
+<a href="https://telegram.org/"><img src="/design/Telegram.png" width="50" height="50"  alt="Telegram"/></a>
+</p>
 
 
 #### Gradle dependencies:
@@ -22,7 +29,7 @@ testImplementation (
 ```
 gradle clean advanced_search
 ```
-#### Удаленный запуск 
+#### Удаленный запуск
 ```
 clean advanced_search_tests
 -Dremote=${REMOTE}
@@ -32,7 +39,7 @@ clean advanced_search_tests
 -Dscreen_resolution=${SCREEN_RESOLUTION}
 -Dvideo_url=${VIDEO_URL}"
 ```
-### Параметры сборки
+#### Параметры сборки
 <code>REMOTE</code> – адрес удаленного сервера, на котором будут запускаться тесты. </br>
 <code>BASE_URL</code> – ссылка сайта по умолчанию. </br>
 <code>TASK</code> – выбор набора тестов по тегу. </br>
@@ -40,7 +47,7 @@ clean advanced_search_tests
 <code>BROWSER_VERSION</code> – версия браузера, на которой будут выполняться тесты. </br>
 <code>SCREEN_RESOLUTION</code> – размер окна браузера, на котором будут выполняться тесты. </br>
 <code>VIDEO_URL</code> – путь хранения видео результатов тестов. </br>
-## Подключение Allure:
+## Подключение Allure
 #### build.gradle
 ```
 plugins {
@@ -61,7 +68,39 @@ allure {
 }
 ```
 #### jenkins
-![hh_allure](https://user-images.githubusercontent.com/5861141/211138908-87df07cc-e649-43fe-8ad3-2297cb0101f3.jpg)
+- В разделе "Послесборочные операции" указать Path: build/allure-results
 
-## Подключение нотификаций о результатах тестов в телеграм:
-#### В структуре проекта
+## Подключение нотификаций о результатах тестов в телеграм
+#### В телеграм
+- создать бота (сохранить токен)
+- добавить бота в нужный чат
+- сделать бота админом
+- получить chatId при помощи: https://api.telegram.org/bot{secret_bot}/getUpdates
+
+#### В структуру проекта добавить
+[notifications/allure-notifications-4.2.1.jar](https://github.com/glazmaikh/hh/blob/master/notifications/allure-notifications-4.2.1.jar)
+#### jenkins
+- В разделе "Сборка" добавить шаг сборки "Create/Update Text File"
+- Указать File Path: notifications/telegram.json
+- Проставить галки для Create at Workspace и Overwrite file
+- Добавить settings.json:
+```
+{
+  "base": {
+    "project": "${JOB_BASE_NAME}",
+    "environment": "some env",
+    "comment": "@Glazmaikh",
+    "reportLink": "${BUILD_URL}",
+    "language": "en",
+    "allureFolder": "allure-report/",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "5966641338:AAGtd9TIa_bCx75K2w0FZe2R6JRhQAIyg80",
+    "chat": "-1001337521442",
+    "replyTo": ""
+  }
+}
+```
+![hh_allure_report](https://user-images.githubusercontent.com/5861141/211144262-65726454-4f8c-425f-830e-5a80cc599195.jpg)
+![hh_telegram_report](https://user-images.githubusercontent.com/5861141/211144264-306e63e7-5c2d-402d-9c5b-51dba746ba56.jpg)
