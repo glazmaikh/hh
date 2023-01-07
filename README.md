@@ -17,17 +17,12 @@ testImplementation (
             'org.slf4j:slf4j-simple:2.0.5'
     )
 ```
-
 ## Запуск тестов из терминала
-
 #### Локальный запуск тестов
-
 ```
 gradle clean advanced_search
 ```
-
 #### Удаленный запуск 
-
 ```
 clean advanced_search_tests
 -Dremote=${REMOTE}
@@ -37,9 +32,7 @@ clean advanced_search_tests
 -Dscreen_resolution=${SCREEN_RESOLUTION}
 -Dvideo_url=${VIDEO_URL}"
 ```
-
-### :robot: Параметры сборки
-
+### Параметры сборки
 <code>REMOTE</code> – адрес удаленного сервера, на котором будут запускаться тесты. </br>
 <code>BASE_URL</code> – ссылка сайта по умолчанию. </br>
 <code>TASK</code> – выбор набора тестов по тегу. </br>
@@ -47,3 +40,28 @@ clean advanced_search_tests
 <code>BROWSER_VERSION</code> – версия браузера, на которой будут выполняться тесты. </br>
 <code>SCREEN_RESOLUTION</code> – размер окна браузера, на котором будут выполняться тесты. </br>
 <code>VIDEO_URL</code> – путь хранения видео результатов тестов. </br>
+## Подключение Allure:
+#### build.gradle
+```
+plugins {
+    id "io.qameta.allure" version "2.11.2"
+}
+allure {
+    report {
+        version.set("2.20.1")
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.20.1")
+            }
+        }
+    }
+}
+```
+#### jenkins
+![hh_allure](https://user-images.githubusercontent.com/5861141/211138908-87df07cc-e649-43fe-8ad3-2297cb0101f3.jpg)
+
+## Подключение нотификаций о результатах тестов в телеграм:
+#### В структуре проекта
