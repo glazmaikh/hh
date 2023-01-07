@@ -45,7 +45,7 @@ clean advanced_search_tests
 <code>TASK</code> – выбор набора тестов по тегу. </br>
 <code>BROWSER</code> – браузера, на котором будут выполняться тесты. </br>
 <code>BROWSER_VERSION</code> – версия браузера, на которой будут выполняться тесты. </br>
-<code>SCREEN_RESOLUTION</code> – размер окна браузера, на котором будут выполняться тесты. </br>
+<code>SCREEN_RESOLUTION</code> – разрешение окна браузера, на котором будут выполняться тесты. </br>
 <code>VIDEO_URL</code> – путь хранения видео результатов тестов. </br>
 ## Подключение Allure
 #### build.gradle:
