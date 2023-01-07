@@ -75,7 +75,7 @@ allure {
 - создать бота (сохранить токен)
 - добавить бота в нужный чат
 - сделать бота админом
-- получить chatId при помощи: https://api.telegram.org/bot{secret_bot}/getUpdates
+- получить chat_id при помощи: https://api.telegram.org/bot{secret_bot}/getUpdates
 
 #### В структуру проекта добавить:
 [notifications/allure-notifications-4.2.1.jar](https://github.com/glazmaikh/hh/blob/master/notifications/allure-notifications-4.2.1.jar)
@@ -88,16 +88,16 @@ allure {
 {
   "base": {
     "project": "${JOB_BASE_NAME}",
-    "environment": "some env",
-    "comment": "@Glazmaikh",
+    "environment": "{your_environment}",
+    "comment": "{your_telegram_name}",
     "reportLink": "${BUILD_URL}",
     "language": "en",
     "allureFolder": "allure-report/",
     "enableChart": true
   },
   "telegram": {
-    "token": "5966641338:AAGtd9TIa_bCx75K2w0FZe2R6JRhQAIyg80",
-    "chat": "-1001337521442",
+    "token": "{secret_bot}",
+    "chat": "{chat_id}",
     "replyTo": ""
   }
 }
