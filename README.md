@@ -69,6 +69,7 @@ allure {
 ```
 #### jenkins:
 - В разделе "Послесборочные операции" указать Path: build/allure-results
+![hh_allure_report](https://user-images.githubusercontent.com/5861141/211144262-65726454-4f8c-425f-830e-5a80cc599195.jpg)
 
 ## Подключение нотификаций о результатах тестов в телеграм
 #### В телеграм:
@@ -102,5 +103,4 @@ allure {
   }
 }
 ```
-![hh_allure_report](https://user-images.githubusercontent.com/5861141/211144262-65726454-4f8c-425f-830e-5a80cc599195.jpg)
 ![hh_telegram_report](https://user-images.githubusercontent.com/5861141/211144264-306e63e7-5c2d-402d-9c5b-51dba746ba56.jpg)
