@@ -25,11 +25,11 @@ testImplementation (
     )
 ```
 ## Запуск тестов из терминала
-#### Локальный запуск тестов
+#### Локальный запуск тестов:
 ```
 gradle clean advanced_search
 ```
-#### Удаленный запуск
+#### Удаленный запуск:
 ```
 clean advanced_search_tests
 -Dremote=${REMOTE}
@@ -39,7 +39,7 @@ clean advanced_search_tests
 -Dscreen_resolution=${SCREEN_RESOLUTION}
 -Dvideo_url=${VIDEO_URL}"
 ```
-#### Параметры сборки
+#### Параметры сборки:
 <code>REMOTE</code> – адрес удаленного сервера, на котором будут запускаться тесты. </br>
 <code>BASE_URL</code> – ссылка сайта по умолчанию. </br>
 <code>TASK</code> – выбор набора тестов по тегу. </br>
@@ -48,7 +48,7 @@ clean advanced_search_tests
 <code>SCREEN_RESOLUTION</code> – размер окна браузера, на котором будут выполняться тесты. </br>
 <code>VIDEO_URL</code> – путь хранения видео результатов тестов. </br>
 ## Подключение Allure
-#### build.gradle
+#### build.gradle:
 ```
 plugins {
     id "io.qameta.allure" version "2.11.2"
@@ -67,19 +67,19 @@ allure {
     }
 }
 ```
-#### jenkins
+#### jenkins:
 - В разделе "Послесборочные операции" указать Path: build/allure-results
 
 ## Подключение нотификаций о результатах тестов в телеграм
-#### В телеграм
+#### В телеграм:
 - создать бота (сохранить токен)
 - добавить бота в нужный чат
 - сделать бота админом
 - получить chatId при помощи: https://api.telegram.org/bot{secret_bot}/getUpdates
 
-#### В структуру проекта добавить
+#### В структуру проекта добавить:
 [notifications/allure-notifications-4.2.1.jar](https://github.com/glazmaikh/hh/blob/master/notifications/allure-notifications-4.2.1.jar)
-#### jenkins
+#### jenkins:
 - В разделе "Сборка" добавить шаг сборки "Create/Update Text File"
 - Указать File Path: notifications/telegram.json
 - Проставить галки для Create at Workspace и Overwrite file
