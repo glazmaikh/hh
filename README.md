@@ -24,7 +24,7 @@ testImplementation (
             'org.slf4j:slf4j-simple:2.0.5'
     )
 ```
-## Запуск тестов из терминала
+## Запуск тестов
 #### Локальный запуск тестов:
 ```
 gradle clean advanced_search
