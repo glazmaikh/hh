@@ -83,7 +83,7 @@ allure {
 - В разделе "Сборка" добавить шаг сборки "Create/Update Text File"
 - Указать File Path: notifications/telegram.json
 - Проставить галки для Create at Workspace и Overwrite file
-- Добавить settings.json:
+- Добавить telegram.json:
 ```
 {
   "base": {
